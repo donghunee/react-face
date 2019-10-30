@@ -4,6 +4,8 @@ var request = require('request')
 var multer = require('multer')
 var storage = multer.memoryStorage()
 const naver = require('../config/naver')
+var gm = require('gm')
+
 var upload = multer({ 
   storage: storage,
   // limits: {
@@ -37,7 +39,7 @@ router.post('/images',upload.single('image'), function(req, res, next) {
       image: image.buffer
     }
   }
-  encodeURIComponent
+
   request(options, function (error, response, body) {
     if (response.statusCode == 200) {
       const data = JSON.parse(body)
