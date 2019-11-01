@@ -8,10 +8,9 @@ var gm = require('gm')
 
 var upload = multer({ 
   storage: storage,
-  // limits: {
-  //   fileSize: 2097152,
-  // },
-
+  limits: {
+    fileSize: 2097152,
+  }
  })
 
 /* GET home page. */
@@ -21,7 +20,6 @@ router.post('/images',upload.single('image'), function(req, res, next) {
     res.status(409).json({
       message:"file size too big",
       data:{
-
       }
     })
     return
